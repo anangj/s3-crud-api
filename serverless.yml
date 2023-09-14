@@ -31,6 +31,8 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - logs:CreateLogGroup
+          - logs:TagResource
           - "s3:Put*"
         Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
   s3FileGet:
@@ -44,6 +46,8 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - logs:CreateLogGroup
+          - logs:TagResource
           - "s3:Get*"
         Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
   s3FileDelete:
@@ -57,6 +61,8 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - logs:CreateLogGroup
+          - logs:TagResource
           - "s3:DeleteObject"
         Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
 
