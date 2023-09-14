@@ -2,7 +2,7 @@ service: s3-file-api
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs12.x
   stage: dev
   region: eu-west-1
   apiName: ${self:service}
@@ -10,6 +10,8 @@ provider:
   timeout: 10
   environment:
     FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 plugins:
   - serverless-iam-roles-per-function
